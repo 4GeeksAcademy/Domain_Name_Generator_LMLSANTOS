@@ -1,11 +1,22 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let generateRandomDomain = () => {
+  let pronoun = ['the','our', 'his', 'her', 'ours', 'theirs', 'their'];
+  let adj = ['great', 'big', 'Small', 'Magnificient', 'Awesome' ];
+  let noun = ['jogger','racoon', 'Honor', 'Pack', 'ocean', 'godfather', 'player'];
+  let extension =['com', 'net', 'pt', 'es', 'us', 'io'];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+  let domainNames = [];
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  for (let i=0; i<pronoun.length; i++){
+    for (let j=0; j<adj.length; j++){
+      for (let k=0; k<noun.length; k++){
+        for (let l=0; l<extension.length; l++){
+          const domainName = `${pronoun[i]}${adj[j]}${noun[k]}.${extension[l]}`;
+          domainNames.push(domainName);
+        }
+      }
+    }
+  }
+  const randomIndex = Math.floor(Math.random()*domainNames.length);
+  return domainNames[randomIndex];
 };
+console.log(generateRandomDomain());
